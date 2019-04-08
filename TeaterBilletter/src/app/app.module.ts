@@ -7,6 +7,8 @@ import { FooterComponent } from './static_content/footer/footer.component';
 import { FrontpageShowsComponent } from './dynamic_content/frontpage-shows/frontpage-shows.component';
 import { ShowInfoComponent } from './show-info/show-info.component';
 import { LoginComponent } from './profile_content/authorization/login/login.component';
+import { AuthorizationComponent } from './profile_content/authorization/authorization.component';
+import { SignupComponent } from './profile_content/authorization/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { LoginComponent } from './profile_content/authorization/login/login.comp
     FooterComponent,
     FrontpageShowsComponent,
     ShowInfoComponent,
-    LoginComponent
+    LoginComponent,
+    AuthorizationComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule
