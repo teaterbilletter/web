@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  public shows : number[];
+
+  constructor() {
+    this.shows = [1,2,3,4];
+  }
 
   ngOnInit() {
   }
