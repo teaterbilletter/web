@@ -1,0 +1,17 @@
+h2 {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.img-thumbnail {
+  border-radius: 50%;
+  border: none;
+  padding-bottom: 10px;
+}
+.card-img-top-profil{
+  object-fit: none;
+  object-position: center;
+
+}
+hr{
+  padding-bottom: 10px;
+}
