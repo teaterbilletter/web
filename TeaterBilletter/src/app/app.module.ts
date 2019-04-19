@@ -20,7 +20,7 @@ import { UserProfileComponent } from './profile_content/user-profile/user-profil
     ShowInfoComponent,
     LoginComponent,
     AuthorizationComponent,
-    SignupComponent
+    SignupComponent,
     UserProfileComponent
   ],
   imports: [
