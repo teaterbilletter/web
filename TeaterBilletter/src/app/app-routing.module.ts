@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { NavigationbarComponent } from './static_content/navigationbar/navigationbar.component';
@@ -10,25 +11,16 @@ import { AuthorizationComponent } from './profile_content/authorization/authoriz
 import { SignupComponent } from './profile_content/authorization/signup/signup.component';
 import { ShowInfoComponent } from './dynamic_content/show-info/show-info.component';
 import { UserProfileComponent } from './profile_content/user-profile/user-profile.component';
-import { AppRoutingModule } from './app-routing.module';
+
+const appRoutes: Routes = [
+  { path: '', component: FrontpageShowsComponent },
+  { path: 'login', component: AuthorizationComponent},
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationbarComponent,
-    FooterComponent,
-    FrontpageShowsComponent,
-    ShowInfoComponent,
-    LoginComponent,
-    AuthorizationComponent,
-    SignupComponent,
-    UserProfileComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [],
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
 })
-export class AppModule { }
+
+export class AppRoutingModule { }
