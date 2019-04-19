@@ -1,0 +1,12 @@
+.btn {
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    display: block;
+    width: 50%;
+}
+
+.btn-link {
+    font-size: 12px;
+}
