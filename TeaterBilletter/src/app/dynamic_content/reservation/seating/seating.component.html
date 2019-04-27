@@ -2,98 +2,13 @@
     <h6>Scene</h6>
 </div>
 
-
-<div class="row">
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
+<div class="row"  *ngFor="let show of shows; let i = index">
+    <div
+        class="seat" (click)="OnSeatChosen($event)" *ngFor="let seat of seats; let j = index" id={{i}}{{j}}>
+    </div>
 </div>
 
-<div class="row">
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-</div>
-
-<div class="row">
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-</div>
-
-<div class="row">
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-</div>
-
-<div class="row">
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-    <div class="seat"></div>
-</div>
+<!-- 
+    [ngClass]="{taken : GetSeatStatus(seatClicked) == false}"
+    [ngStyle]="{'background': GetSeatStatus(seatClicked) ? 'red' : 'green'}"
+-->
