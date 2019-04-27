@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { ReservationComponent } from './dynamic_content/reservation/reservation.component';
 import { SeatingComponent } from './dynamic_content/reservation/seating/seating.component';
+import { AvailableTimeComponent } from './dynamic_content/reservation/available-time/available-time.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SeatingComponent } from './dynamic_content/reservation/seating/seating.
     UserProfileComponent,
     PopUpComponent,
     ReservationComponent,
-    SeatingComponent
+    SeatingComponent,
+    AvailableTimeComponent
   ],
   imports: [
     BrowserModule,
