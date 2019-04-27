@@ -12,6 +12,8 @@ import { ShowInfoComponent } from './dynamic_content/show-info/show-info.compone
 import { UserProfileComponent } from './profile_content/user-profile/user-profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import { ReservationComponent } from './dynamic_content/reservation/reservation.component';
+import { SeatingComponent } from './dynamic_content/reservation/seating/seating.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     AuthorizationComponent,
     SignupComponent,
     UserProfileComponent,
-    PopUpComponent
+    PopUpComponent,
+    ReservationComponent,
+    SeatingComponent
   ],
   imports: [
     BrowserModule,
