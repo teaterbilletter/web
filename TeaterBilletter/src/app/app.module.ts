@@ -11,6 +11,7 @@ import { SignupComponent } from './profile_content/authorization/signup/signup.c
 import { ShowInfoComponent } from './dynamic_content/show-info/show-info.component';
 import { UserProfileComponent } from './profile_content/user-profile/user-profile.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     AuthorizationComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
