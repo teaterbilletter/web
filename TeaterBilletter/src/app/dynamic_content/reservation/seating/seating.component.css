@@ -1,0 +1,23 @@
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.seat {
+    cursor: pointer;
+    width: 35px;
+    height: 50px;
+    border-radius: 7px;
+    background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041,  #F3686A);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.seat:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
