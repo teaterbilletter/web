@@ -11,9 +11,14 @@ h2 {
 	border: 1px solid #353a3f;
 }
 
-
 .card {
-    margin-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.card:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2); ;
 }
 
 .card-img-top {
