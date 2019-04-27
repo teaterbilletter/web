@@ -10,6 +10,7 @@ import { AuthorizationComponent } from './profile_content/authorization/authoriz
 import { SignupComponent } from './profile_content/authorization/signup/signup.component';
 import { ShowInfoComponent } from './dynamic_content/show-info/show-info.component';
 import { UserProfileComponent } from './profile_content/user-profile/user-profile.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserProfileComponent } from './profile_content/user-profile/user-profil
     LoginComponent,
     AuthorizationComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule
