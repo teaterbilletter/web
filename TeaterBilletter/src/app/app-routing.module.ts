@@ -15,6 +15,7 @@ import { UserProfileComponent } from './profile_content/user-profile/user-profil
 const appRoutes: Routes = [
   { path: '', component: FrontpageShowsComponent },
   { path: 'login', component: AuthorizationComponent},
+  { path: 'show', component: ShowInfoComponent}
 ];
 
 @NgModule({
