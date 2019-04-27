@@ -6,7 +6,7 @@
 
 .seat {
     cursor: pointer;
-    width: 35px;
+    width: 5%;
     height: 50px;
     border-radius: 7px;
     background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041,  #F3686A);
@@ -14,10 +14,20 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 1%;
 }
 
 .seat:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
+h6 {
+    background: whitesmoke;
+    width: 100%;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+}
