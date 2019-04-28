@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationComponent implements OnInit {
 
+  public showTimeSlots = false;
+  
   constructor() { }
 
   ngOnInit() {
   }
 
+  public GetShowTimeSlots() : boolean {
+    return this.showTimeSlots;
+  }
+
+  public CalculateAvailableTimeSlots() {
+    this.showTimeSlots = true;
+  }
 }
