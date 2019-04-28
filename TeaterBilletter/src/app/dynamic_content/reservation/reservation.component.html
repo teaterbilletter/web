@@ -1,5 +1,11 @@
 <div class="col-xs-12">
   <div class="container">
     <app-seating></app-seating>
+    <button type="button" class="btn btn-primary center" (click)="CalculateAvailableTimeSlots()">Vis ledige datoer for denne forestilling</button>
+    <app-available-time [ngStyle]="{'display': GetShowTimeSlots() ? 'block' : 'none'}"></app-available-time>
   </div>
 </div>
+
+<!-- 
+  [ngStyle]="{'display': GetShowTimeSlots() ? 'block' : 'none'}"
+-->

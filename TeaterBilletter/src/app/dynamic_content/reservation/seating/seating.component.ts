@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $: any;
+
 @Component({
   selector: 'app-seating',
   templateUrl: './seating.component.html',
@@ -45,10 +47,18 @@ export class SeatingComponent implements OnInit {
   }
 
   private UpdateChosenSeatStatus(seatId) {
+    var jqueryElementId = "#".concat(seatId);
+    var color;
+
     if (this.chosenSeats.get(seatId)) {
       this.chosenSeats.set(seatId, false);
+      color = "linear-gradient(to top, #2E7D32, #388E3C, #43A047, #4CAF50, #66BB6A, #81C784,  #A5D6A7)";
     } else {
       this.chosenSeats.set(seatId, true);
+      color = "linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041,  #F3686A)";
     }
+
+    $(jqueryElementId).css("background", color);
+
   }
 }
