@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvailableTimeComponent implements OnInit {
 
-  constructor() { }
+  public timeSlots : number[];
+
+  constructor() { 
+    this.timeSlots = [1, 2 ,3 ,4 , 5, 6, 7];
+  }
 
   ngOnInit() {
   }
