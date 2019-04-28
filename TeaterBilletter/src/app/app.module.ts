@@ -16,6 +16,9 @@ import { ReservationComponent } from './dynamic_content/reservation/reservation.
 import { SeatingComponent } from './dynamic_content/reservation/seating/seating.component';
 import { AvailableTimeComponent } from './dynamic_content/reservation/available-time/available-time.component';
 
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {Intercept} from './intercept';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +37,14 @@ import { AvailableTimeComponent } from './dynamic_content/reservation/available-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: Intercept,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
