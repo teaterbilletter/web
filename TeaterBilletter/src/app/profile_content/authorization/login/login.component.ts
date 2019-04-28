@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  public OnLoginPressed(username: string, password: string) {
-    this.client.post<LoginResult>(this.baseUrl, {username, password}).subscribe((result: LoginResult) => {
+  public OnLoginPressed(name: string, password: string) {
+    this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
       this.response = result.response;
       localStorage.setItem('token', result.token);
     }, error => {
