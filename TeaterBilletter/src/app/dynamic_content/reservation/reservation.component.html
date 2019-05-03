@@ -13,13 +13,11 @@
 
     <app-datepicker [ngStyle]="{'display': GetShowDatePicker() ? 'block' : 'none'}"></app-datepicker>
 
+    <br>
+
     <app-seating [ngStyle]="{'display': GetShowSeats() ? 'block' : 'none'}"></app-seating>
 
-    <button type="button" class="btn btn-primary center" (click)="CalculateAvailableTimeSlots()" [ngStyle]="{'display': GetShowSeats() ? 'block' : 'none'}">Vis ledige datoer for denne forestilling</button>
+    <button type="button" class="btn btn-primary center" (click)="CalculateAvailableTimeSlots()" [ngStyle]="{'display': GetShowButtonForTimeSlots() ? 'block' : 'none'}">Vis ledige datoer for denne forestilling</button>
     <app-available-time [ngStyle]="{'display': GetShowTimeSlots() ? 'block' : 'none'}"></app-available-time>
   </div>
 </div>
-
-<!-- 
-  [ngStyle]="{'display': GetShowTimeSlots() ? 'block' : 'none'}"
--->

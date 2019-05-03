@@ -11,6 +11,7 @@ export class ReservationComponent implements OnInit {
   public showTimeSlots = false;
   public showSeats = false;
   public showDatePicker = false;
+  public showButtonForTimeSlots = false;
 
   constructor(private visualService: VisualComponentService) { }
 
@@ -28,12 +29,14 @@ export class ReservationComponent implements OnInit {
   public SetShowSeats() {
     this.showSeats = true;
     this.visualService.setShowSeats(this.showSeats);
+    this.showButtonForTimeSlots = true;
     this.showDatePicker = false;
   }
 
   public SetShowDatePicker() {
     this.visualService.setShowSeats(false);
     this.showDatePicker = true;
+    this.showButtonForTimeSlots = false;
     this.showSeats = false;
   }
 
@@ -43,5 +46,9 @@ export class ReservationComponent implements OnInit {
 
   public GetShowDatePicker() {
     return this.showDatePicker;
+  }
+
+  public GetShowButtonForTimeSlots() {
+    return this.showButtonForTimeSlots;
   }
 }
