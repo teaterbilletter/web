@@ -7,10 +7,4 @@
         class="seat" (click)="OnSeatChosen($event)" *ngFor="let seat of seats; let j = index" id={{i}}{{j}}>
     </div>
 </div>
-
-<hr>
-
-<!-- 
-    [ngClass]="{taken : GetSeatStatus(seatClicked) == false}"
-    [ngStyle]="{'background': GetSeatStatus(seatClicked) ? 'red' : 'green'}"
--->
+<br>

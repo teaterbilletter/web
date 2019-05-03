@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {VisualComponentService} from '../../visualComponent.service';
 
 @Component({
   selector: 'app-reservation',
@@ -8,17 +9,46 @@ import { Component, OnInit } from '@angular/core';
 export class ReservationComponent implements OnInit {
 
   public showTimeSlots = false;
-  
-  constructor() { }
+  public showSeats = false;
+  public showDatePicker = false;
+  public showButtonForTimeSlots = false;
+
+  constructor(private visualService: VisualComponentService) { }
 
   ngOnInit() {
   }
 
   public GetShowTimeSlots() : boolean {
-    return this.showTimeSlots;
+    return this.showTimeSlots && this.visualService.showSeats;
   }
 
   public CalculateAvailableTimeSlots() {
     this.showTimeSlots = true;
+  }
+
+  public SetShowSeats() {
+    this.showSeats = true;
+    this.visualService.setShowSeats(this.showSeats);
+    this.showButtonForTimeSlots = true;
+    this.showDatePicker = false;
+  }
+
+  public SetShowDatePicker() {
+    this.visualService.setShowSeats(false);
+    this.showDatePicker = true;
+    this.showButtonForTimeSlots = false;
+    this.showSeats = false;
+  }
+
+  public GetShowSeats() {
+    return this.visualService.showSeats;
+  }
+
+  public GetShowDatePicker() {
+    return this.showDatePicker;
+  }
+
+  public GetShowButtonForTimeSlots() {
+    return this.showButtonForTimeSlots;
   }
 }
