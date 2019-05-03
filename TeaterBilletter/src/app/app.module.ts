@@ -20,6 +20,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {Intercept} from './intercept';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DatepickerComponent } from './dynamic_content/reservation/datepicker/datepicker.component';
+import {VisualComponentService} from './visualComponent.service';
 
 @NgModule({
   declarations: [
@@ -44,11 +45,14 @@ import { DatepickerComponent } from './dynamic_content/reservation/datepicker/da
     HttpClientModule,
     BsDatepickerModule.forRoot()
   ],
-  providers: [{
+  providers: [
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: Intercept,
     multi: true
-  }],
+    },
+    VisualComponentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
