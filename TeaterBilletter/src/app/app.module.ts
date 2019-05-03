@@ -18,6 +18,7 @@ import { AvailableTimeComponent } from './dynamic_content/reservation/available-
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {Intercept} from './intercept';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {Intercept} from './intercept';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
