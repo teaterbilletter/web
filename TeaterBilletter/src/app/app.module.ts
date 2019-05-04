@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavigationbarComponent } from './static_content/navigationbar/navigationbar.component';
@@ -23,6 +23,7 @@ import { DatepickerComponent } from './dynamic_content/reservation/datepicker/da
 import {VisualComponentService} from './visualComponent.service';
 import {AuthService} from './auth.service';
 import {AuthGuard} from './authguard.service';
+import {AuthErrorHandler} from './authErrorHandler.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,10 @@ import {AuthGuard} from './authguard.service';
     provide: HTTP_INTERCEPTORS,
     useClass: Intercept,
     multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: AuthErrorHandler
     },
     VisualComponentService,
     AuthService,
