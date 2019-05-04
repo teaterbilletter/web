@@ -22,6 +22,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DatepickerComponent } from './dynamic_content/reservation/datepicker/datepicker.component';
 import {VisualComponentService} from './visualComponent.service';
 import {AuthService} from './auth.service';
+import {AuthGuard} from './authguard.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {AuthService} from './auth.service';
     multi: true
     },
     VisualComponentService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
