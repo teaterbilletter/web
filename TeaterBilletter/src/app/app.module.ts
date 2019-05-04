@@ -21,6 +21,7 @@ import {Intercept} from './intercept';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DatepickerComponent } from './dynamic_content/reservation/datepicker/datepicker.component';
 import {VisualComponentService} from './visualComponent.service';
+import { ConfirmationComponent } from './dynamic_content/reservation/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {VisualComponentService} from './visualComponent.service';
     ReservationComponent,
     SeatingComponent,
     AvailableTimeComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
