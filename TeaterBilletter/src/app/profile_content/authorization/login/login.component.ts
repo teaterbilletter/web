@@ -13,7 +13,7 @@ interface LoginResult {
 })
 export class LoginComponent implements OnInit {
 
-  public baseUrl = 'https://ticket.northeurope.cloudapp.azure.com:5443/Endpoint/login';
+  public baseUrl = 'https://ticket.northeurope.cloudapp.azure.com/Login';
   private response: string;
 
   constructor(private client: HttpClient) { }
