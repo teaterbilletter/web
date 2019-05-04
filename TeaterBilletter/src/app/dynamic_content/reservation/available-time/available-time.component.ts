@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AvailableTimeComponent implements OnInit {
 
   public timeSlots : number[];
+  public confirmation = false;
 
   constructor() { 
     this.timeSlots = [1, 2 ,3 ,4 , 5, 6, 7];
@@ -16,4 +17,11 @@ export class AvailableTimeComponent implements OnInit {
   ngOnInit() {
   }
 
+  private setConfirmationMessage() {
+    this.confirmation = true;
+  }
+
+  private getConfirmationMessage() {
+    return this.confirmation;
+  }
 }
