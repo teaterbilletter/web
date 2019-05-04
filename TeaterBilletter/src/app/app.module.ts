@@ -21,6 +21,8 @@ import {Intercept} from './intercept';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DatepickerComponent } from './dynamic_content/reservation/datepicker/datepicker.component';
 import {VisualComponentService} from './visualComponent.service';
+import {AuthService} from './auth.service';
+import {AuthGuard} from './authguard.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import {VisualComponentService} from './visualComponent.service';
     useClass: Intercept,
     multi: true
     },
-    VisualComponentService
+    VisualComponentService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

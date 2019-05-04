@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-
-interface LoginResult {
-  response: string;
-  token?: string;
-}
+import {AuthService} from '../../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,21 +8,12 @@ interface LoginResult {
 })
 export class LoginComponent implements OnInit {
 
-  public baseUrl = 'https://ticket.northeurope.cloudapp.azure.com:5443/Endpoint/login';
-  private response: string;
-
-  constructor(private client: HttpClient) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   public OnLoginPressed(name: string, password: string) {
-    this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
-      this.response = result.response;
-      localStorage.setItem('token', result.token);
-    }, error => {
-      console.log(error.error);
-      window.alert(error.error);
-    });
+    this.authService.login(name, password)
   }
 }
