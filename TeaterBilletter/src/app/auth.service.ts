@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 import {HttpClient} from '@angular/common/http';
+import {RestapiService} from './service/restapi.service';
 
 export const TOKEN_NAME: string = 'token';
 
@@ -12,9 +13,9 @@ interface LoginResult {
 @Injectable()
 export class AuthService {
 
-  public baseUrl = 'https://ticket.northeurope.cloudapp.azure.com/Login';
+  constructor(private client: HttpClient, private restapi: RestapiService) { }
 
-  constructor(private client: HttpClient) { }
+  public baseUrl = this.restapi.authUrl();
 
   getToken(): string {
     return localStorage.getItem(TOKEN_NAME);
