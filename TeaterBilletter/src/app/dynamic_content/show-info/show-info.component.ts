@@ -16,11 +16,11 @@ export class ShowInfoComponent implements OnInit {
   constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService) { }
 
   ngOnInit() {
-    //   let showId = this.showService.getShowId();
-    //
-    //   this.client.get<Show>(this.restapi.showUrl().concat(showId)).subscribe(show => {
-    //   this.show = show;
-    // });
+    let showId = this.showService.getShowId();
+
+    this.client.get<Show>(this.restapi.showUrl().concat(showId)).subscribe(show => {
+      this.show = show;
+    });
   }
 
 }
