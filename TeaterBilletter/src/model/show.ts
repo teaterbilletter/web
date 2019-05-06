@@ -19,4 +19,5 @@ export interface Show {
     imgUrl?: string;
     basePrice?: number;
     active?: boolean;
+    description?: string;
 }

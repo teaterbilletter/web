@@ -10,7 +10,7 @@ import {ShowService} from '../../service/show.service';
 })
 export class FrontpageShowsComponent implements OnInit {
 
-  public showsUrl = "https://ticket.northeurope.cloudapp.azure.com/AllShows";
+  public showsUrl = "https://ticket.northeurope.cloudapp.azure.com:5443/AllShows";
   public shows: Array<Show>;
 
   constructor(private client: HttpClient, private showService: ShowService) { }

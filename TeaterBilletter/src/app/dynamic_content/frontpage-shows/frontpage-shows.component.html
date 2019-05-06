@@ -4,11 +4,11 @@
     <hr class="divider">
     <div class="row">
       <div class="col-sm-3" *ngFor="let show of shows; let i = index">
-        <div class="card" *ngIf="shows[i].active" (click)="onShowClicked(shows[i].title)" routerLink="/show">
+        <div class="card" *ngIf="shows[i].active" (click)="onShowClicked(shows[i].id)" routerLink="/show">
             <img class="card-img-top" [src]="shows[i].imgUrl" height="400px" >
             <div class="card-body">
               <h5>{{ shows[i].title }}</h5>
-              <p>{{ shows[i].active }}</p>
+              <p>{{ shows[i].description }}</p>
             </div>
         </div>
       </div>
