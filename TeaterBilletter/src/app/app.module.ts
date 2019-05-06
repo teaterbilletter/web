@@ -24,6 +24,8 @@ import {VisualComponentService} from './visualComponent.service';
 import {AuthService} from './auth.service';
 import {AuthGuard} from './authguard.service';
 import {AuthErrorHandler} from './authErrorHandler.service';
+import {ShowService} from './service/show.service';
+import {RestapiService} from './service/restapi.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import {AuthErrorHandler} from './authErrorHandler.service';
     },
     VisualComponentService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    ShowService,
+    RestapiService
   ],
   bootstrap: [AppComponent]
 })

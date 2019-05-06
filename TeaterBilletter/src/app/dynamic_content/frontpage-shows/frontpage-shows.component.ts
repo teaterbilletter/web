@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Show} from '../../../model/show';
+import {ShowService} from '../../service/show.service';
 
 @Component({
   selector: 'app-frontpage-shows',
@@ -7,13 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontpageShowsComponent implements OnInit {
 
-  public shows : number[];
+  public showsUrl = "https://ticket.northeurope.cloudapp.azure.com/AllShows";
+  public shows: Array<Show>;
 
-  constructor() {
-    this.shows = [1, 2 ,3 ,4 , 5, 6, 7];
-   }
+  constructor(private client: HttpClient, private showService: ShowService) { }
 
   ngOnInit() {
+    this.client.get<Show[]>(this.showsUrl).subscribe(shows => {
+      this.shows = shows;
+    })
   }
 
+  onShowClicked(showId) {
+    console.log(showId);
+    this.showService.setShowId(showId.toString());
+  }
 }
