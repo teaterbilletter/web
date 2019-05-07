@@ -7,6 +7,9 @@
       <p>
         {{ show?.description }}
       </p>
+      <p>Priser fra {{ show?.basePrice }} kr.</p>
+      <p>Kører fra: {{ show?.dates[0] }}</p>
+      <p>Kører til: {{ show?.dates[show?.dates.length - 1] }}</p>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="card">
