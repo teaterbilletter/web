@@ -13,6 +13,7 @@
 
 export interface Hall { 
     hallNum?: number;
-    seats?: Array<number>;
+    seats?: number;
+    rows?: number;
     theater?: Theater;
 }

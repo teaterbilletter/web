@@ -14,8 +14,9 @@ import { Show } from './show';
 
 export interface Booking { 
     bookingID?: number;
-    customerID?: number;
+    customerID?: string;
     seats?: Array<Seat>;
     show?: Show;
     date?: Date;
+    totalPrice?: number;
 }
