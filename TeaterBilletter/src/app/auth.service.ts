@@ -5,10 +5,12 @@ import {RestapiService} from './service/restapi.service';
 import {Router} from '@angular/router';
 
 export const TOKEN_NAME: string = 'token';
+export const USER_ID: string = 'userId';
 
 interface LoginResult {
   response: string;
   token?: string;
+  username: string;
 }
 
 @Injectable()
@@ -22,8 +24,16 @@ export class AuthService {
     return localStorage.getItem(TOKEN_NAME);
   }
 
+  getUserId(): string {
+    return localStorage.getItem(USER_ID);
+  }
+
   setToken(token: string): void {
     localStorage.setItem(TOKEN_NAME, token);
+  }
+
+  setUserId(userId: string) {
+    localStorage.setItem(USER_ID, userId);
   }
 
   getTokenExpirationDate(token: string): Date {
@@ -48,6 +58,7 @@ export class AuthService {
   login(name: string, password: string) {
     this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
       this.setToken(result.token);
+      this.setUserId(result.username);
       this.router.navigate(['/profile']);
     }, error => {
       console.log(error.error);
