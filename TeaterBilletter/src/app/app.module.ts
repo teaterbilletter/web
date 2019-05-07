@@ -27,6 +27,7 @@ import {AuthErrorHandler} from './authErrorHandler.service';
 import {ShowService} from './service/show.service';
 import {RestapiService} from './service/restapi.service';
 import {NgHttpLoaderModule} from 'ng-http-loader';
+import {SeatingService} from './service/seating.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {NgHttpLoaderModule} from 'ng-http-loader';
     AuthService,
     AuthGuard,
     ShowService,
-    RestapiService
+    RestapiService,
+    SeatingService
   ],
   bootstrap: [AppComponent]
 })
