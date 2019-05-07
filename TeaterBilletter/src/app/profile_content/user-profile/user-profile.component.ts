@@ -12,7 +12,7 @@ export class UserProfileComponent implements OnInit {
   public shows : number[];
   public customer: Customer;
 
-  private baseUrl = "https://ticket.northeurope.cloudapp.azure.com/Customer/7";
+  private baseUrl = "https://ticket.northeurope.cloudapp.azure.com:5443/Customer/4";
 
   constructor(private client: HttpClient) {
     this.shows = [1,2,3,4];

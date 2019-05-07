@@ -26,6 +26,7 @@ import {AuthGuard} from './authguard.service';
 import {AuthErrorHandler} from './authErrorHandler.service';
 import {ShowService} from './service/show.service';
 import {RestapiService} from './service/restapi.service';
+import {NgHttpLoaderModule} from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {RestapiService} from './service/restapi.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    NgHttpLoaderModule.forRoot()
   ],
   providers: [
     {
