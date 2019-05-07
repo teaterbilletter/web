@@ -19,6 +19,5 @@ export class LoginComponent implements OnInit {
 
   public OnLoginPressed(name: string, password: string) {
     this.authService.login(name, password);
-    this.router.navigate(['/profile']);
   }
 }

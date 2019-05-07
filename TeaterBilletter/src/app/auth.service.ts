@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 import {HttpClient} from '@angular/common/http';
 import {RestapiService} from './service/restapi.service';
+import {Router} from '@angular/router';
 
 export const TOKEN_NAME: string = 'token';
 
@@ -13,7 +14,7 @@ interface LoginResult {
 @Injectable()
 export class AuthService {
 
-  constructor(private client: HttpClient, private restapi: RestapiService) { }
+  constructor(private client: HttpClient, private restapi: RestapiService, private router: Router) { }
 
   public baseUrl = this.restapi.authUrl();
 
@@ -47,7 +48,16 @@ export class AuthService {
   login(name: string, password: string) {
     this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
       this.setToken(result.token);
-      return result.token;
+      this.router.navigate(['/profile']);
+    }, error => {
+      console.log(error.error);
+      window.alert(error.error);
+    });
+  }
+
+  loginWithoutNavigate(name: string, password: string) {
+    this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
+      this.setToken(result.token);
     }, error => {
       console.log(error.error);
       window.alert(error.error);
