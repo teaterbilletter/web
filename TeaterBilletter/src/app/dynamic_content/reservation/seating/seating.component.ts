@@ -10,8 +10,8 @@ declare var $: any;
 })
 export class SeatingComponent implements OnInit {
 
-  public rows = new Array(5);
-  public seats = new Array(5);
+  public rows = new Array(0);
+  public seats = new Array(0);
   public chosenSeats : Map<string, boolean>;
   public seatClicked;
 
@@ -20,22 +20,21 @@ export class SeatingComponent implements OnInit {
    }
 
   ngOnInit() {
-    
-    if (this.seatingService.getHall() != null) {
+    setTimeout(() => {
       this.rows = new Array(this.seatingService.getHall().rows);
       this.seats = new Array(this.seatingService.getHall().seats);
-    }
 
-    this.chosenSeats = new Map();
+      this.chosenSeats = new Map();
 
-    for (let i = 0; i < this.rows.length; i++) {
-      for (let j = 0; j < this.seats.length; j++) {
-        var row = i.toString();
-        var seat = j.toString();
-        var id = row.concat(seat);
-        this.chosenSeats.set(id, false);
+      for (let i = 0; i < this.rows.length; i++) {
+        for (let j = 0; j < this.seats.length; j++) {
+          var row = i.toString();
+          var seat = j.toString();
+          var id = row.concat(seat);
+          this.chosenSeats.set(id, false);
+        }
       }
-    }
+    }, 500);
   }
 
   public OnSeatChosen(event) {
