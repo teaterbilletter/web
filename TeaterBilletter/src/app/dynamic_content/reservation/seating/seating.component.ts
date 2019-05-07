@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SeatingService} from '../../../service/seating.service';
 
 declare var $: any;
 
@@ -9,14 +10,21 @@ declare var $: any;
 })
 export class SeatingComponent implements OnInit {
 
-  public rows : number[];
-  public seats : number[];
+  public rows = new Array(5);
+  public seats = new Array(5);
   public chosenSeats : Map<string, boolean>;
   public seatClicked;
 
-  constructor() {
-    this.rows = [1, 2 ,3 ,4 , 5, 6, 7];
-    this.seats = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+  constructor(private seatingService: SeatingService) {
+
+   }
+
+  ngOnInit() {
+    
+    if (this.seatingService.getHall() != null) {
+      this.rows = new Array(this.seatingService.getHall().rows);
+      this.seats = new Array(this.seatingService.getHall().seats);
+    }
 
     this.chosenSeats = new Map();
 
@@ -28,9 +36,6 @@ export class SeatingComponent implements OnInit {
         this.chosenSeats.set(id, false);
       }
     }
-   }
-
-  ngOnInit() {
   }
 
   public OnSeatChosen(event) {
