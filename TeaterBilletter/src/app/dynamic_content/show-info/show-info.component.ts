@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ShowService} from '../../service/show.service';
 import {Show} from '../../../model/show';
 import {RestapiService} from '../../service/restapi.service';
+import {SeatingService} from '../../service/seating.service';
 
 @Component({
   selector: 'app-show-info',
@@ -13,13 +14,14 @@ export class ShowInfoComponent implements OnInit {
 
   public show: Show;
 
-  constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService) { }
+  constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService, private seatingService: SeatingService) { }
 
   ngOnInit() {
     let showId = this.showService.getShowId();
 
     this.client.get<Show>(this.restapi.showUrl().concat(showId)).subscribe(show => {
       this.show = show;
+      this.seatingService.setHall(this.show.hall);
     });
   }
 
