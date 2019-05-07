@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Show} from '../../../model/show';
 import {ShowService} from '../../service/show.service';
+import {SeatingService} from '../../service/seating.service';
 
 @Component({
   selector: 'app-frontpage-shows',
