@@ -7,6 +7,10 @@ export class RestapiService {
   }
 
   public showUrl(): string {
-    return this.baseUrl.concat("Show/");
+    return this.baseUrl.concat('Show/');
+  }
+
+  public customerUrl(): string {
+    return this.baseUrl.concat('Customer/')
   }
 }
