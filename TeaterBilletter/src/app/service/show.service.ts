@@ -1,10 +1,13 @@
 import {DatePipe} from '@angular/common';
 import {Injectable} from '@angular/core';
+import {Show} from '../../model/show';
 
 @Injectable()
 export class ShowService {
 
+  private show?: Show;
   private dates;
+  public numberOfTickets: number = 0;
 
   constructor(private datePipe: DatePipe) {}
 
@@ -27,5 +30,13 @@ export class ShowService {
 
   public getShowDates() {
     return this.dates;
+  }
+
+  public setShow(show: Show) {
+    this.show = show;
+  }
+
+  public getShow(): Show {
+    return this.show;
   }
 }

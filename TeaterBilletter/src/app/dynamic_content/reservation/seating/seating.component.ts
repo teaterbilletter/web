@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SeatingService} from '../../../service/seating.service';
 import {Seat} from '../../../../model/seat';
+import {ShowService} from '../../../service/show.service';
 
 declare var $: any;
 
@@ -16,7 +17,7 @@ export class SeatingComponent implements OnInit {
   public chosenSeats: Map<string, boolean> = new Map<string, boolean>();
   public seatClicked;
 
-  constructor(private seatingService: SeatingService) {
+  constructor(private seatingService: SeatingService, private showService: ShowService) {
 
    }
 
@@ -71,9 +72,11 @@ export class SeatingComponent implements OnInit {
       if (this.chosenSeats.get(seatId)) {
         this.chosenSeats.set(seatId, false);
         color = "linear-gradient(to top, #2E7D32, #388E3C, #43A047, #4CAF50, #66BB6A, #81C784,  #A5D6A7)";
+        this.showService.numberOfTickets--;
       } else {
         this.chosenSeats.set(seatId, true);
         color = "linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041,  #F3686A)";
+        this.showService.numberOfTickets++;
       }
 
       $(jqueryElementId).css("background", color);

@@ -3,9 +3,9 @@
     Bekræft bestilling
   </div>
   <div class="card-body">
-    <h5 class="card-title">Billetter til Phantom of the Opera</h5>
-    <p class="card-text">Valgt: 3 stks</p>
-    <p class="card-text">Pris: 499 kr.</p>
+    <h5 class="card-title">Billetter til {{ this.showService?.getShow()?.title }}</h5>
+    <p class="card-text">Valgt: {{ this.showService.numberOfTickets }} stks</p>
+    <p class="card-text">Pris: {{ this.showService.getShow()?.basePrice * this.showService.numberOfTickets }} kr.</p>
     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Gå til betaling</a>
     <div><app-pop-up></app-pop-up></div>
   </div>

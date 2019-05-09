@@ -19,5 +19,8 @@
 
     <button type="button" class="btn btn-primary center" (click)="CalculateAvailableTimeSlots()" [ngStyle]="{'display': GetShowButtonForTimeSlots() ? 'block' : 'none'}">Vis ledige datoer for denne forestilling</button>
     <app-available-time [ngStyle]="{'display': GetShowTimeSlots() ? 'block' : 'none'}"></app-available-time>
+
+    <app-confirmation [ngStyle]="{'display': this.visualService.getConfirm() ? 'block' : 'none'}"></app-confirmation>
+    <br>
   </div>
 </div>

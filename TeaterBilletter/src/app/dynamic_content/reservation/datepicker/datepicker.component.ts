@@ -33,6 +33,8 @@ export class DatepickerComponent implements OnInit {
   }
 
   onSelectElementClicked() {
+    this.visualService.setConfirm(true);
+
     let dateSelector: HTMLSelectElement = <HTMLSelectElement>document.getElementById("showDateSelector");
     let date: string = dateSelector.options[dateSelector.selectedIndex].text;
 
