@@ -13,4 +13,5 @@
 export interface Seat { 
     seatNumber?: number;
     rowNumber?: number;
+    occupied?: boolean;
 }
