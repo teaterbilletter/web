@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-pop-up',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopUpComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+
   }
 
+  public isUserLoggedIn() {
+    return !this.authService.isTokenExpired(this.authService.getToken());
+  }
 }

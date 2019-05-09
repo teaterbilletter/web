@@ -29,6 +29,8 @@ import {RestapiService} from './service/restapi.service';
 import {NgHttpLoaderModule} from 'ng-http-loader';
 import {SeatingService} from './service/seating.service';
 import {DatePipe} from '@angular/common';
+import { ChangeUserProfilComponent } from './profile_content/user-profile/change-user-profil/change-user-profil.component';
+import { UserService} from "./service/user.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {DatePipe} from '@angular/common';
     ReservationComponent,
     SeatingComponent,
     AvailableTimeComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    ChangeUserProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import {DatePipe} from '@angular/common';
     ShowService,
     RestapiService,
     SeatingService,
-    DatePipe
+    DatePipe,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

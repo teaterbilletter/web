@@ -12,6 +12,10 @@
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-primary" (click)="setShowProfileChangesPopUp()" data-toggle="modal" data-target="#exampleModalLong">Rediger din profil</button>
+
+  <br>
+  <app-pop-up [ngStyle]="{'display': getShowProfileChangesPopUp() ? 'block' : 'none'}"></app-pop-up>
   <hr>
   <div>
     <h3>Mine bestillinger</h3>

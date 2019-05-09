@@ -3,8 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Customer} from '../../../model/customer';
 import {RestapiService} from '../../service/restapi.service';
 import {AuthService} from '../../auth.service';
+import {UserService} from "../../service/user.service";
+import {ChangeUserProfilComponent} from "./change-user-profil/change-user-profil.component";
 
 @Component({
+  providers: [ChangeUserProfilComponent],
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
@@ -13,14 +16,37 @@ export class UserProfileComponent implements OnInit {
 
   public shows : number[];
   public customer: Customer;
+  public changeProfile: boolean = false;
+  public isLoggedIn: boolean = false;
+  public userAdress: string;
+  public userEmail: string;
 
-  constructor(private client: HttpClient, private restapi: RestapiService, private authService: AuthService) {
+  constructor(
+    private client: HttpClient,
+    private restapi: RestapiService,
+    private authService: AuthService,
+    private userService: UserService,
+    private changeUserComponent: ChangeUserProfilComponent) {
     this.shows = [1,2,3,4];
   }
 
   ngOnInit() {
     this.client.get<Customer>(this.restapi.customerUrl().concat(this.authService.getUserId())).subscribe(customer => {
       this.customer = customer;
+      this.userService.setuserAdresse(customer.address);
+      this.userService.setUserEmail(customer.email);
     });
+  }
+
+   public setShowProfileChangesPopUp() {
+    this.changeProfile = true;
+    this.isLoggedIn = true;
+    this.changeUserComponent.ngOnInit();
+  }
+
+  public getShowProfileChangesPopUp(){
+    if (this.isLoggedIn == true) {
+      return this.changeProfile;
+    }
   }
 }
