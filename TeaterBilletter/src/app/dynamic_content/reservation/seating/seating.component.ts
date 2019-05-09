@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SeatingService} from '../../../service/seating.service';
+import {Seat} from '../../../../model/seat';
 
 declare var $: any;
 
@@ -12,7 +13,7 @@ export class SeatingComponent implements OnInit {
 
   public rows = new Array(0);
   public seats = new Array(0);
-  public chosenSeats : Map<string, boolean>;
+  public chosenSeats: Map<string, boolean>;
   public seatClicked;
 
   constructor(private seatingService: SeatingService) {
@@ -48,6 +49,24 @@ export class SeatingComponent implements OnInit {
 
   public GetSeatStatus(seatId) : boolean {
     return this.chosenSeats.get(seatId);
+  }
+
+  public testComponentShit() {
+    console.log("Started that shit");
+    console.log(this.seatingService.getOccupiedSeats());
+    for (let seat of this.seatingService.getOccupiedSeats()) {
+      let seatId = seat.row_number + "" + seat.seat_number;
+
+      console.log(seatId);
+      this.updateOccupiedSeats(seat);
+    }
+
+  }
+
+  private updateOccupiedSeats(seat: Seat) {
+    let jqueryElementId = "#".concat(seat.row_number + "" + seat.seat_number);
+    var color = "linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041,  #F3686A)";
+    $(jqueryElementId).css("background", color);
   }
 
   private UpdateChosenSeatStatus(seatId) {

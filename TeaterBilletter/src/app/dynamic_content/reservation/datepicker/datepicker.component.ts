@@ -4,8 +4,11 @@ import {ShowService} from '../../../service/show.service';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {RestapiService} from '../../../service/restapi.service';
 import {Seat} from '../../../../model/seat';
+import {SeatingService} from '../../../service/seating.service';
+import {SeatingComponent} from '../seating/seating.component';
 
 @Component({
+  providers: [SeatingComponent],
   selector: 'app-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.css']
@@ -19,7 +22,9 @@ export class DatepickerComponent implements OnInit {
     private visualService: VisualComponentService,
     private showService: ShowService,
     private client: HttpClient,
-    private restapi: RestapiService) { }
+    private restapi: RestapiService,
+    private seatingService: SeatingService,
+    private seatingComponent: SeatingComponent) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -32,14 +37,18 @@ export class DatepickerComponent implements OnInit {
     let date: string = dateSelector.options[dateSelector.selectedIndex].text;
     console.log(date);
 
-    let params = new HttpParams();
-    params.append('dateTime', date);
-    params.append('ShowID', this.showService.getShowId());
+    var params = new HttpParams();
+    params = params.append('dateTime', date);
+    params = params.append('ShowID', this.showService.getShowId());
 
     console.log("Base URL is: " + this.restapi.occupiedSeatsUrl());
 
     this.client.get<Seat[]>(this.restapi.occupiedSeatsUrl(), {params: params}).subscribe( seats => {
-      console.log(seats);
+      for (let seat of seats) {
+        seat.occupied = true;
+      }
+      this.seatingService.setOccupiedSeats(seats);
+      this.seatingComponent.testComponentShit();
     }, error => {
       console.log(error.error);
     })
