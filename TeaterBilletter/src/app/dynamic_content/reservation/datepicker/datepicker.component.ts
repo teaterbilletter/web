@@ -35,20 +35,17 @@ export class DatepickerComponent implements OnInit {
   onSelectElementClicked() {
     let dateSelector: HTMLSelectElement = <HTMLSelectElement>document.getElementById("showDateSelector");
     let date: string = dateSelector.options[dateSelector.selectedIndex].text;
-    console.log(date);
 
     var params = new HttpParams();
     params = params.append('dateTime', date);
     params = params.append('ShowID', this.showService.getShowId());
-
-    console.log("Base URL is: " + this.restapi.occupiedSeatsUrl());
 
     this.client.get<Seat[]>(this.restapi.occupiedSeatsUrl(), {params: params}).subscribe( seats => {
       for (let seat of seats) {
         seat.occupied = true;
       }
       this.seatingService.setOccupiedSeats(seats);
-      this.seatingComponent.testComponentShit();
+      this.seatingComponent.updateOccupiedSeatsOnSeatVisualMap();
     }, error => {
       console.log(error.error);
     })

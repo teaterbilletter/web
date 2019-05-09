@@ -13,7 +13,7 @@ export class SeatingComponent implements OnInit {
 
   public rows = new Array(0);
   public seats = new Array(0);
-  public chosenSeats: Map<string, boolean>;
+  public chosenSeats: Map<string, boolean> = new Map<string, boolean>();
   public seatClicked;
 
   constructor(private seatingService: SeatingService) {
@@ -42,7 +42,6 @@ export class SeatingComponent implements OnInit {
     var target = event.target || event.srcElement || event.currentTarget;
     var idAttr = target.attributes.id;
     var id = idAttr.nodeValue;
-    console.log(id);
     this.seatClicked = id;
     this.UpdateChosenSeatStatus(this.seatClicked);
   }
@@ -51,16 +50,10 @@ export class SeatingComponent implements OnInit {
     return this.chosenSeats.get(seatId);
   }
 
-  public testComponentShit() {
-    console.log("Started that shit");
-    console.log(this.seatingService.getOccupiedSeats());
+  public updateOccupiedSeatsOnSeatVisualMap() {
     for (let seat of this.seatingService.getOccupiedSeats()) {
-      let seatId = seat.row_number + "" + seat.seat_number;
-
-      console.log(seatId);
       this.updateOccupiedSeats(seat);
     }
-
   }
 
   private updateOccupiedSeats(seat: Seat) {
@@ -73,15 +66,17 @@ export class SeatingComponent implements OnInit {
     var jqueryElementId = "#".concat(seatId);
     var color;
 
-    if (this.chosenSeats.get(seatId)) {
-      this.chosenSeats.set(seatId, false);
-      color = "linear-gradient(to top, #2E7D32, #388E3C, #43A047, #4CAF50, #66BB6A, #81C784,  #A5D6A7)";
-    } else {
-      this.chosenSeats.set(seatId, true);
-      color = "linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041,  #F3686A)";
+
+    if (this.seatingService.getOccupiedSeatMap().get(seatId) == null) {
+      if (this.chosenSeats.get(seatId)) {
+        this.chosenSeats.set(seatId, false);
+        color = "linear-gradient(to top, #2E7D32, #388E3C, #43A047, #4CAF50, #66BB6A, #81C784,  #A5D6A7)";
+      } else {
+        this.chosenSeats.set(seatId, true);
+        color = "linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #B54041,  #F3686A)";
+      }
+
+      $(jqueryElementId).css("background", color);
     }
-
-    $(jqueryElementId).css("background", color);
-
   }
 }
