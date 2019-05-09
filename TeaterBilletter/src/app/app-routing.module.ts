@@ -11,7 +11,8 @@ import { AuthorizationComponent } from './profile_content/authorization/authoriz
 import { SignupComponent } from './profile_content/authorization/signup/signup.component';
 import { ShowInfoComponent } from './dynamic_content/show-info/show-info.component';
 import { UserProfileComponent } from './profile_content/user-profile/user-profile.component';
-import {AuthGuard} from './authguard.service';
+import { AuthGuard } from './authguard.service';
+import { PopUpComponent } from "./pop-up/pop-up.component";
 
 const appRoutes: Routes = [
   { path: '', component: FrontpageShowsComponent },

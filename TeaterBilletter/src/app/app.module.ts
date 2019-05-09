@@ -29,6 +29,7 @@ import {RestapiService} from './service/restapi.service';
 import {NgHttpLoaderModule} from 'ng-http-loader';
 import {SeatingService} from './service/seating.service';
 import {DatePipe} from '@angular/common';
+import { ConfirmationComponent } from './dynamic_content/reservation/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {DatePipe} from '@angular/common';
     ReservationComponent,
     SeatingComponent,
     AvailableTimeComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
