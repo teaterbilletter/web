@@ -28,6 +28,7 @@ import {ShowService} from './service/show.service';
 import {RestapiService} from './service/restapi.service';
 import {NgHttpLoaderModule} from 'ng-http-loader';
 import {SeatingService} from './service/seating.service';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {SeatingService} from './service/seating.service';
     AuthGuard,
     ShowService,
     RestapiService,
-    SeatingService
+    SeatingService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

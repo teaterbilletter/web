@@ -21,6 +21,7 @@ export class ShowInfoComponent implements OnInit {
 
     this.client.get<Show>(this.restapi.showUrl().concat(showId)).subscribe(show => {
       this.show = show;
+      this.showService.setShowDates(show.dates);
       this.seatingService.setHall(this.show.hall);
     });
   }

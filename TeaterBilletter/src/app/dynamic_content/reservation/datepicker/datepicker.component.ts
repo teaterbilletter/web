@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {VisualComponentService} from '../../../visualComponent.service';
+import {ShowService} from '../../../service/show.service';
 
 @Component({
   selector: 'app-datepicker',
@@ -9,26 +10,20 @@ import {VisualComponentService} from '../../../visualComponent.service';
 
 export class DatepickerComponent implements OnInit {
 
+  public dates: Array<Date> = new Array<Date>();
   public showSeats: boolean = false;
 
-  constructor(private visualService: VisualComponentService) { }
+  constructor(private visualService: VisualComponentService, private showService: ShowService) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.dates = this.showService.getShowDates();
+    }, 500);
   }
 
-  public ShowSeats(date) {
-    this.showSeats = true;
-
-    let dates = date.value.split(" - ");
-    console.log(dates[0]);
-    console.log(dates[1]);
-
-    let fromDate = new Date(dates[0]);
-
-    console.log(fromDate.getTime());
-
-    this.visualService.setShowSeats(this.showSeats);
-    return this.showSeats
+  onSelectElementClicked() {
+    let dateSelector: HTMLSelectElement = <HTMLSelectElement>document.getElementById("showDateSelector");
+    console.log(dateSelector.options[dateSelector.selectedIndex].text);
+    this.visualService.setShowSeats(true);
   }
-
 }

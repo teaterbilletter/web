@@ -4,6 +4,7 @@ export class SeatingService {
   private hall?: Hall;
   private rows?: number;
   private seats?: number;
+
   public chosenSeats : Map<string, boolean>;
 
   public setHall(hall: Hall) {

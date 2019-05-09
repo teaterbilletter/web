@@ -1,8 +1,14 @@
 <div class="row">
   <div class="col-xs-12 col-md-4 form-group">
-    <input type="text" placeholder="Tidsinterval" class="form-control" bsDaterangepicker #date>
+    <form>
+      <div class="form-group">
+        <select class="form-control" id="showDateSelector">
+          <option *ngFor="let date of dates; let i = index" [id]="i" (click)="onSelectElementClicked()">{{ dates[i] }}</option>
+        </select>
+      </div>
+    </form>
   </div>
   <div class="col-xs-12 col-md-4 form-group">
-    <button type="button" class="btn btn-primary" (click)="ShowSeats(date)">Vis ledige sæder for datoen</button>
+    <button type="button" class="btn btn-primary" (click)="onSelectElementClicked()">Vis ledige sæder for datoen</button>
   </div>
 </div>
