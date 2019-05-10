@@ -55,6 +55,10 @@ export class AuthService {
     return !(date.valueOf() > new Date().valueOf());
   }
 
+  isUserLoggedIn(): boolean {
+    return !this.isTokenExpired(this.getToken());
+  }
+
   login(name: string, password: string, shouldNavigate: boolean) {
     this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
       this.setToken(result.token);
