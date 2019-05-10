@@ -30,7 +30,7 @@
               {{ booking?.show.title }}
             </h5>
             <p>{{ this.datePipe.transform(booking?.date, "yyyy-MM-dd HH:mm:ss") }}</p>
-            <button type="button" class="btn">Annuller booking</button>
+            <button type="button" class="btn" (click)="onCancelBookingPressed(booking.bookingID)">Annuller booking</button>
           </div>
         </div>
       </div>
