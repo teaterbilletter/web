@@ -30,6 +30,7 @@ import {NgHttpLoaderModule} from 'ng-http-loader';
 import {SeatingService} from './service/seating.service';
 import {DatePipe} from '@angular/common';
 import { ConfirmationComponent } from './dynamic_content/reservation/confirmation/confirmation.component';
+import {BookingService} from './service/booking.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ConfirmationComponent } from './dynamic_content/reservation/confirmatio
     ShowService,
     RestapiService,
     SeatingService,
-    DatePipe
+    DatePipe,
+    BookingService
   ],
   bootstrap: [AppComponent]
 })
