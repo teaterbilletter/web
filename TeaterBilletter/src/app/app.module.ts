@@ -31,6 +31,8 @@ import {SeatingService} from './service/seating.service';
 import {DatePipe} from '@angular/common';
 import { ConfirmationComponent } from './dynamic_content/reservation/confirmation/confirmation.component';
 import {BookingService} from './service/booking.service';
+import { ChangeUserProfilComponent } from './profile_content/user-profile/change-user-profil/change-user-profil.component';
+import { UserService} from "./service/user.service";
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import {BookingService} from './service/booking.service';
     AvailableTimeComponent,
     DatepickerComponent,
     ConfirmationComponent
+    ChangeUserProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import {BookingService} from './service/booking.service';
     SeatingService,
     DatePipe,
     BookingService
+    UserService
   ],
   bootstrap: [AppComponent]
 })
