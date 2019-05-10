@@ -23,7 +23,6 @@ export class FrontpageShowsComponent implements OnInit {
   }
 
   onShowClicked(showId) {
-    console.log(showId);
     this.showService.setShowId(showId.toString());
   }
 }
