@@ -1,6 +1,7 @@
 import {DatePipe} from '@angular/common';
 import {Injectable} from '@angular/core';
 import {Show} from '../../model/show';
+import {BookingService} from './booking.service';
 
 @Injectable()
 export class ShowService {
@@ -9,7 +10,7 @@ export class ShowService {
   private dates;
   public numberOfTickets: number = 0;
 
-  constructor(private datePipe: DatePipe) {}
+  constructor(private datePipe: DatePipe, private bookingService: BookingService) {}
 
   public getShowId(): string {
     return window.sessionStorage.getItem('showId');
@@ -34,6 +35,7 @@ export class ShowService {
 
   public setShow(show: Show) {
     this.show = show;
+    this.bookingService.show = show;
   }
 
   public getShow(): Show {
