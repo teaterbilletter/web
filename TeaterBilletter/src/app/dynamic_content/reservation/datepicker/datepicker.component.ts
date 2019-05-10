@@ -6,6 +6,7 @@ import {RestapiService} from '../../../service/restapi.service';
 import {Seat} from '../../../../model/seat';
 import {SeatingService} from '../../../service/seating.service';
 import {SeatingComponent} from '../seating/seating.component';
+import {BookingService} from '../../../service/booking.service';
 
 @Component({
   providers: [SeatingComponent],
@@ -24,7 +25,8 @@ export class DatepickerComponent implements OnInit {
     private client: HttpClient,
     private restapi: RestapiService,
     private seatingService: SeatingService,
-    private seatingComponent: SeatingComponent) { }
+    private seatingComponent: SeatingComponent,
+    private bookingService: BookingService) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -37,6 +39,8 @@ export class DatepickerComponent implements OnInit {
 
     let dateSelector: HTMLSelectElement = <HTMLSelectElement>document.getElementById("showDateSelector");
     let date: string = dateSelector.options[dateSelector.selectedIndex].text;
+
+    this.bookingService.date = date;
 
     var params = new HttpParams();
     params = params.append('dateTime', date);
