@@ -5,6 +5,9 @@ import {Booking} from '../../../../model/booking';
 import {Seat} from '../../../../model/seat';
 import {Show} from '../../../../model/show';
 import {BookingService} from '../../../service/booking.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {RestapiService} from '../../../service/restapi.service';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-confirmation',
@@ -13,7 +16,11 @@ import {BookingService} from '../../../service/booking.service';
 })
 export class ConfirmationComponent implements OnInit {
 
-  constructor(private showService: ShowService, private authService: AuthService, private bookingService: BookingService) { }
+  constructor(private showService: ShowService,
+              private authService: AuthService,
+              private bookingService: BookingService,
+              private client: HttpClient,
+              private restapi: RestapiService) { }
 
   ngOnInit() {
   }
@@ -28,13 +35,25 @@ export class ConfirmationComponent implements OnInit {
       totalPrice: number;
     }
 
-    booking.bookingID = 123;
-    booking.customerID = "s155576";
+    booking.bookingID = 0;
+    booking.customerID = this.authService.getUserId();
     booking.date = new Date(Date.parse(this.bookingService.date));
     booking.show = this.bookingService.show;
+    booking.seats = this.bookingService.seats;
     booking.totalPrice = 500;
 
     let json = JSON.stringify(booking);
-    console.log("Json is: " + json);
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+    this.client.post<Booking>(this.restapi.bookingUrl, json, httpOptions).subscribe((result: Booking) => {
+
+    }, error => {
+      console.log(error.error);
+    });
   }
 }
