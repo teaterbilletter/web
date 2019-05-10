@@ -6,7 +6,15 @@
     <h5 class="card-title">Billetter til {{ this.showService?.getShow()?.title }}</h5>
     <p class="card-text">Valgt: {{ this.showService.numberOfTickets }} stks</p>
     <p class="card-text">Pris: {{ this.showService.getShow()?.basePrice * this.showService.numberOfTickets }} kr.</p>
-    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Gå til betaling</a>
-    <div><app-pop-up></app-pop-up></div>
+
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" *ngIf="!this.authService.isUserLoggedIn(); else showPayButton">Log ind for at betale</a>
+
+    <ng-template #showPayButton>
+      <button type="button" class="btn btn-primary" (click)="onPaymentButtonClicked()">Gå til betaling</button>
+    </ng-template>
+
+    <div>
+      <app-pop-up></app-pop-up>
+    </div>
   </div>
 </div>
