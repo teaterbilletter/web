@@ -1,6 +1,7 @@
 export class RestapiService {
 
   public baseUrl: string = "https://disttickets.northeurope.cloudapp.azure.com:5443/";
+  public bookingUrl: string = this.baseUrl.concat('Booking/');
 
   public authUrl(): string {
     return this.baseUrl.concat('UserLogin');
