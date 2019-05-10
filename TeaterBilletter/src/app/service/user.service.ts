@@ -1,5 +1,7 @@
+import {Customer} from '../../model/customer';
 
 export class UserService {
+  public customer: Customer;
   public userAdress: string;
   public userEmail: string;
 

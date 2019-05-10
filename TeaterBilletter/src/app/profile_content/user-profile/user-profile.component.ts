@@ -36,6 +36,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     this.client.get<Customer>(this.restapi.customerUrl().concat(this.authService.getUserId())).subscribe(customer => {
       this.customer = customer;
+      this.userService.customer = customer;
       this.userService.setuserAdresse(customer.address);
       this.userService.setUserEmail(customer.email);
     });
