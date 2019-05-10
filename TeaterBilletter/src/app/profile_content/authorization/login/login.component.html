@@ -10,6 +10,6 @@
     <label for="passwordInpu_passwordt">Password</label>
     <input type="password" class="form-control" id="passwordInpu_passwordt" placeholder="Password" #password>
   </div>
-  <button type="submit" class="btn btn-success" (click)="OnLoginPressed(username.value, password.value)">Login</button>
+  <button type="submit" class="btn btn-success" (click)="OnLoginPressed(username.value, password.value, !this.visualService.getConfirm())" data-dismiss="modal">Login</button>
   <button type="button" class="btn btn-link">Har du glemt dit password?</button>
 </form>
