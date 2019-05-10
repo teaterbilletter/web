@@ -8,8 +8,8 @@
         {{ show?.description }}
       </p>
       <p>Priser fra {{ show?.basePrice }} kr.</p>
-      <p>Kører fra: {{ show?.dates[0] }}</p>
-      <p>Kører til: {{ show?.dates[show?.dates.length - 1] }}</p>
+      <p>Kører fra: {{ this.datePipe.transform(show?.dates[0], "yyyy-MM-dd HH:mm:ss") }}</p>
+      <p>Kører til: {{ this.datePipe.transform(show?.dates[show?.dates.length - 1], "yyyy-MM-dd HH:mm:ss") }}</p>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
       <div class="card">

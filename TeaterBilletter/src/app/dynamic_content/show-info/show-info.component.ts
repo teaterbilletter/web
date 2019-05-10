@@ -4,6 +4,7 @@ import {ShowService} from '../../service/show.service';
 import {Show} from '../../../model/show';
 import {RestapiService} from '../../service/restapi.service';
 import {SeatingService} from '../../service/seating.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-show-info',
@@ -14,7 +15,7 @@ export class ShowInfoComponent implements OnInit {
 
   public show: Show;
 
-  constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService, private seatingService: SeatingService) { }
+  constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService, private seatingService: SeatingService, private datePipe: DatePipe) { }
 
   ngOnInit() {
     let showId = this.showService.getShowId();
