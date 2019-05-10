@@ -22,15 +22,15 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-sm-3" *ngFor="let show of shows; let i = index">
+      <div class="col-sm-3" *ngFor="let booking of bookings; let i = index">
         <div class="card">
-          <img class="card-img-top-profil" src="https://img.broadwaybox.com/photo/image/ben-phantom-1-large.jpg" height="200px">
+          <img class="card-img-top-profil" [src]="booking?.show.imgUrl" height="200px">
           <div class="card-body">
             <h5>
-              Phantom of the Opera
+              {{ booking?.show.title }}
             </h5>
-            <p>16/06-2019</p>
-            <p>Kl. 18.00</p>
+            <p>{{ this.datePipe.transform(booking?.date, "yyyy-MM-dd HH:mm:ss") }}</p>
+            <button type="button" class="btn">Annuller booking</button>
           </div>
         </div>
       </div>

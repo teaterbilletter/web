@@ -5,6 +5,9 @@ import {RestapiService} from '../../service/restapi.service';
 import {AuthService} from '../../auth.service';
 import {UserService} from "../../service/user.service";
 import {ChangeUserProfilComponent} from "./change-user-profil/change-user-profil.component";
+import {Show} from '../../../model/show';
+import {Booking} from '../../../model/booking';
+import {DatePipe} from '@angular/common';
 
 @Component({
   providers: [ChangeUserProfilComponent],
@@ -14,7 +17,7 @@ import {ChangeUserProfilComponent} from "./change-user-profil/change-user-profil
 })
 export class UserProfileComponent implements OnInit {
 
-  public shows : number[];
+  public bookings: Array<Booking> = new Array<Booking>();
   public customer: Customer;
   public changeProfile: boolean = false;
   public isLoggedIn: boolean = false;
@@ -26,8 +29,8 @@ export class UserProfileComponent implements OnInit {
     private restapi: RestapiService,
     private authService: AuthService,
     private userService: UserService,
-    private changeUserComponent: ChangeUserProfilComponent) {
-    this.shows = [1,2,3,4];
+    private changeUserComponent: ChangeUserProfilComponent,
+    private datePipe: DatePipe) {
   }
 
   ngOnInit() {
@@ -35,6 +38,11 @@ export class UserProfileComponent implements OnInit {
       this.customer = customer;
       this.userService.setuserAdresse(customer.address);
       this.userService.setUserEmail(customer.email);
+    });
+
+    this.client.get<Booking[]>(this.restapi.bookingsUrl.concat(this.authService.getUserId())).subscribe(bookings => {
+      this.bookings = bookings;
+      console.log(bookings)
     });
   }
 
