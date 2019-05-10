@@ -50,7 +50,7 @@ import { UserService} from "./service/user.service";
     SeatingComponent,
     AvailableTimeComponent,
     DatepickerComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
     ChangeUserProfilComponent
   ],
   imports: [
@@ -77,7 +77,7 @@ import { UserService} from "./service/user.service";
     RestapiService,
     SeatingService,
     DatePipe,
-    BookingService
+    BookingService,
     UserService
   ],
   bootstrap: [AppComponent]
