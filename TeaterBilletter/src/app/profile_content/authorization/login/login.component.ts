@@ -11,7 +11,7 @@ import {VisualComponentService} from '../../../visualComponent.service';
 export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router, private visualService: VisualComponentService) {
-    if (!this.authService.isTokenExpired(this.authService.getToken()) && this.visualService.getConfirm()) {
+    if (this.authService.isUserLoggedIn() && !this.visualService.getConfirm()) {
       this.router.navigate(['/profile']);
     }
   }
