@@ -8,6 +8,7 @@ import {BookingService} from '../../../service/booking.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {RestapiService} from '../../../service/restapi.service';
 import {catchError} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-confirmation',
@@ -20,7 +21,8 @@ export class ConfirmationComponent implements OnInit {
               private authService: AuthService,
               private bookingService: BookingService,
               private client: HttpClient,
-              private restapi: RestapiService) { }
+              private restapi: RestapiService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -51,7 +53,7 @@ export class ConfirmationComponent implements OnInit {
     };
 
     this.client.post<Booking>(this.restapi.bookingUrl, json, httpOptions).subscribe((result: Booking) => {
-
+      this.router.navigate(['/profile']);
     }, error => {
       console.log(error.error);
     });
