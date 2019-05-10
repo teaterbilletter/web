@@ -42,7 +42,6 @@ export class UserProfileComponent implements OnInit {
 
     this.client.get<Booking[]>(this.restapi.bookingsUrl.concat(this.authService.getUserId())).subscribe(bookings => {
       this.bookings = bookings;
-      console.log(bookings)
     });
   }
 
@@ -56,5 +55,13 @@ export class UserProfileComponent implements OnInit {
     if (this.isLoggedIn == true) {
       return this.changeProfile;
     }
+  }
+
+  onCancelBookingPressed(bookingId) {
+    this.client.delete(this.restapi.bookingUrl.concat(bookingId)).subscribe(() => {
+      window.location.reload();
+    }, error => {
+      console.log(error);
+    })
   }
 }

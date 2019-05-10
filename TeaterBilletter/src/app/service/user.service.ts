@@ -5,7 +5,6 @@ export class UserService {
 
   public setuserAdresse(userAdress: string) {
     this.userAdress = userAdress;
-    console.log("setUserAdress ran with " + userAdress);
   }
 
   public setUserEmail(userEmail: string) {
@@ -13,7 +12,6 @@ export class UserService {
   }
 
   public getUserAdresse() {
-    console.log("getUserAdress ran with: " + this.userAdress);
     return this.userAdress;
   }
   public getUserEmail() {
