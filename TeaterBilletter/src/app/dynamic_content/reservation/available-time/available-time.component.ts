@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {VisualComponentService} from '../../../visualComponent.service';
 
 @Component({
   selector: 'app-available-time',
@@ -10,7 +11,7 @@ export class AvailableTimeComponent implements OnInit {
   public timeSlots : number[];
   public confirmation = false;
 
-  constructor() { 
+  constructor(private visualService: VisualComponentService) {
     this.timeSlots = [1, 2 ,3 ,4 , 5, 6, 7];
   }
 
@@ -18,10 +19,10 @@ export class AvailableTimeComponent implements OnInit {
   }
 
   private setConfirmationMessage() {
-    this.confirmation = true;
+    this.visualService.setConfirm(true);
   }
 
   private getConfirmationMessage() {
-    return this.confirmation;
+    return this.visualService.getConfirm();
   }
 }
