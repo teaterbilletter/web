@@ -55,20 +55,14 @@ export class AuthService {
     return !(date.valueOf() > new Date().valueOf());
   }
 
-  login(name: string, password: string) {
+  login(name: string, password: string, shouldNavigate: boolean) {
     this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
       this.setToken(result.token);
       this.setUserId(result.username);
-      this.router.navigate(['/profile']);
-    }, error => {
-      console.log(error.error);
-      window.alert(error.error);
-    });
-  }
 
-  loginWithoutNavigate(name: string, password: string) {
-    this.client.post<LoginResult>(this.baseUrl, {name, password}).subscribe((result: LoginResult) => {
-      this.setToken(result.token);
+      if (shouldNavigate) {
+        this.router.navigate(['/profile']);
+      }
     }, error => {
       console.log(error.error);
       window.alert(error.error);
