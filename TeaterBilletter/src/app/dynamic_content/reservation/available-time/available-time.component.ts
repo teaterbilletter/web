@@ -15,12 +15,9 @@ export class AvailableTimeComponent implements OnInit {
   ngOnInit() {
   }
 
-  public updateTimeSlots() {
-
-  }
-
-  private setConfirmationMessage() {
+  private setConfirmationMessage(timeslot: string) {
     this.visualService.setConfirm(true);
+    this.bookingService.date = timeslot;
   }
 
   private getConfirmationMessage() {

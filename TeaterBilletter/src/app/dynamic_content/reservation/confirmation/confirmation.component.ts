@@ -46,6 +46,8 @@ export class ConfirmationComponent implements OnInit {
 
     let json = JSON.stringify(booking);
 
+    console.log(json);
+
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
