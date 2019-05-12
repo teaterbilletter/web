@@ -55,7 +55,7 @@ export class ChangeUserProfilComponent implements OnInit {
     console.log(json);
 
     this.client.put<Customer>(this.restapi.customerUrl(), json, httpOptions).subscribe((result: Customer) => {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/']);
     }, error => {
       console.log(error.error);
     });
