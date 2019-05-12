@@ -10,7 +10,7 @@ import {VisualComponentService} from '../../../visualComponent.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router, private visualService: VisualComponentService) {
+  constructor(private authService: AuthService, private router: Router, public visualService: VisualComponentService) {
     if (this.authService.isUserLoggedIn() && !this.visualService.getConfirm()) {
       this.router.navigate(['/profile']);
     }

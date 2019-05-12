@@ -14,7 +14,7 @@ export class ReservationComponent implements OnInit {
   public showButtonForTimeSlots = false;
   public timeSlotsCalculated = false;
 
-  constructor(private visualService: VisualComponentService) { }
+  constructor(public visualService: VisualComponentService) { }
 
   ngOnInit() {
   }

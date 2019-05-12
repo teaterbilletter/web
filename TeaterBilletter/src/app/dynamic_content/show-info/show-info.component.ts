@@ -15,7 +15,7 @@ export class ShowInfoComponent implements OnInit {
 
   public show: Show;
 
-  constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService, private seatingService: SeatingService, private datePipe: DatePipe) { }
+  constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService, private seatingService: SeatingService, public datePipe: DatePipe) { }
 
   ngOnInit() {
     let showId = this.showService.getShowId();
