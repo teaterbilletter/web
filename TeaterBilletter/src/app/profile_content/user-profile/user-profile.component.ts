@@ -8,6 +8,7 @@ import {ChangeUserProfilComponent} from "./change-user-profil/change-user-profil
 import {Show} from '../../../model/show';
 import {Booking} from '../../../model/booking';
 import {DatePipe} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   providers: [ChangeUserProfilComponent],
@@ -30,7 +31,7 @@ export class UserProfileComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private changeUserComponent: ChangeUserProfilComponent,
-    private datePipe: DatePipe) {
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -60,7 +61,7 @@ export class UserProfileComponent implements OnInit {
 
   onCancelBookingPressed(bookingId) {
     this.client.delete(this.restapi.bookingUrl.concat(bookingId)).subscribe(() => {
-      window.location.reload();
+      this.router.navigate(['/profile']);
     }, error => {
       console.log(error);
     })

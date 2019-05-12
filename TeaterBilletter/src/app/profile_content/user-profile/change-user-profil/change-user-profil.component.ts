@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Customer} from '../../../../model/customer';
 import {Booking} from '../../../../model/booking';
 import {RestapiService} from '../../../service/restapi.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import {RestapiService} from '../../../service/restapi.service';
 })
 export class ChangeUserProfilComponent implements OnInit {
 
-  constructor(private userService: UserService, private client: HttpClient, private restapi: RestapiService) { }
+  constructor(private userService: UserService, private client: HttpClient, private restapi: RestapiService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -54,7 +55,7 @@ export class ChangeUserProfilComponent implements OnInit {
     console.log(json);
 
     this.client.put<Customer>(this.restapi.customerUrl(), json, httpOptions).subscribe((result: Customer) => {
-      window.location.reload();
+      this.router.navigate(['/profile']);
     }, error => {
       console.log(error.error);
     });
