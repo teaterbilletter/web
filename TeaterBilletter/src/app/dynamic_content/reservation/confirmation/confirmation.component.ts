@@ -18,7 +18,7 @@ import {Router} from '@angular/router';
 export class ConfirmationComponent implements OnInit {
 
   constructor(public showService: ShowService,
-              public authService: AuthService,
+              public  authService: AuthService,
               private bookingService: BookingService,
               private client: HttpClient,
               private restapi: RestapiService,

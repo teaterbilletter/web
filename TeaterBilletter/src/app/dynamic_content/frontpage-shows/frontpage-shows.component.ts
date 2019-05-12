@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Show} from '../../../model/show';
 import {ShowService} from '../../service/show.service';
-import {SeatingService} from '../../service/seating.service';
+import {RestapiService} from '../../service/restapi.service';
 
 @Component({
   selector: 'app-frontpage-shows',
@@ -11,13 +11,12 @@ import {SeatingService} from '../../service/seating.service';
 })
 export class FrontpageShowsComponent implements OnInit {
 
-  public showsUrl = "https://ticket.northeurope.cloudapp.azure.com:5443/AllShows";
   public shows: Array<Show>;
 
-  constructor(private client: HttpClient, private showService: ShowService) { }
+  constructor(private client: HttpClient, private showService: ShowService, private restapi: RestapiService) { }
 
   ngOnInit() {
-    this.client.get<Show[]>(this.showsUrl).subscribe(shows => {
+    this.client.get<Show[]>(this.restapi.allShows).subscribe(shows => {
       this.shows = shows;
     })
   }
