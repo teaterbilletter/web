@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VisualComponentService} from '../../../visualComponent.service';
+import {BookingService} from '../../../service/booking.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-available-time',
@@ -8,14 +10,13 @@ import {VisualComponentService} from '../../../visualComponent.service';
 })
 export class AvailableTimeComponent implements OnInit {
 
-  public timeSlots : number[];
-  public confirmation = false;
-
-  constructor(private visualService: VisualComponentService) {
-    this.timeSlots = [1, 2 ,3 ,4 , 5, 6, 7];
-  }
+  constructor(private visualService: VisualComponentService, public bookingService: BookingService, public datePipe: DatePipe) { }
 
   ngOnInit() {
+  }
+
+  public updateTimeSlots() {
+
   }
 
   private setConfirmationMessage() {

@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-lg-2" *ngFor="let timeSlot of timeSlots; let i = index">
+  <div class="col-lg-2" *ngFor="let timeSlot of this.bookingService.availableTimes; let i = index">
     <div class="card" (click)="setConfirmationMessage()">
       <div class="card-body">
-        <div class="card-title">5. maj 2019</div>
-        <div class="card-subtitle mb-2 text-muted">Kl. 19:00</div>
+        <div class="card-title">{{ this.datePipe.transform(timeSlot, "yyyy-MM-dd") }}</div>
+        <div class="card-subtitle mb-2 text-muted">Kl. {{ this.datePipe.transform(timeSlot, "HH:mm") }}</div>
       </div>
     </div>
   </div>
