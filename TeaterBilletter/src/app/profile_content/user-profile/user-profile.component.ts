@@ -62,7 +62,7 @@ export class UserProfileComponent implements OnInit {
 
   onCancelBookingPressed(bookingId) {
     this.client.delete(this.restapi.bookingUrl.concat(bookingId)).subscribe(() => {
-      this.router.navigate(['/']);
+      window.location.reload();
     }, error => {
       console.log(error);
     })
